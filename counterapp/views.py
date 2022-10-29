@@ -3,8 +3,6 @@ import json
 from django.http import JsonResponse
 from django.shortcuts import render
 
-# Create your views her
-
 value = 1
 
 
@@ -16,7 +14,7 @@ def counter(request):
             value = json.loads(request.body)["value"]
         return JsonResponse({"count": value})
     except:
-        return JsonResponse({"count": "400"})
+        return JsonResponse({}, status=400)
 
 
 def increment(request):
@@ -25,7 +23,7 @@ def increment(request):
         value = value + json.loads(request.body)["diff"]
         return JsonResponse({"count": value})
     except:
-        return JsonResponse({"count": "400"})
+        return JsonResponse({}, status=400)
 
 
 def decrement(request):
@@ -34,4 +32,4 @@ def decrement(request):
         value = value - json.loads(request.body)["diff"]
         return JsonResponse({"count": value})
     except:
-        return JsonResponse({"count": "400"})
+        return JsonResponse({}, status=400)

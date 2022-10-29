@@ -20,7 +20,7 @@ from counterapp.views import counter, increment, decrement
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("counter", counter),
-    path("counter/increment", increment),
-    path("counter/decrement", decrement),
+    path("counter", counter, name="counter"),
+    path("counter/increment", increment, name="increment"),
+    path("counter/decrement", decrement, name="decrement"),
 ]
